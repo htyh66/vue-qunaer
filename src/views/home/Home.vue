@@ -1,10 +1,19 @@
 <template>
-  <div>111111111111111</div>
+  <div>
+    <home-header></home-header>
+  </div>
 </template>
 
 <script>
-export default {};
-</script>
+import HomeHeader from './components/Header'
+export default {
+  components : {
+    HomeHeader
+  }
 
-<style>
+};
+</script>
+  
+<style >
+  
 </style>
