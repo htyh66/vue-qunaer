@@ -8,21 +8,32 @@
 </template>
 
 <script>
-import HomeHeader from './components/Header'
-import HomeSwiper from './components/Swiper'
-import HomeIcons from './components/Icons.vue'
-import HomeTuijian from './components/Tuijian'
+import HomeHeader from "./components/Header";
+import HomeSwiper from "./components/Swiper";
+import HomeIcons from "./components/Icons.vue";
+import HomeTuijian from "./components/Tuijian";
+import axios from "axios";
 export default {
-  components : {
+  components: {
     HomeHeader,
     HomeSwiper,
     HomeIcons,
-    HomeTuijian
-  }
-
+    HomeTuijian,
+  },
+  methods: {
+    getHomeInfo() {
+      axios.get("/api/index.json")
+      .then(this.getHomeInfoSucc);
+    },
+    getHomeInfoSucc(res) {
+      console.log(res);
+    },
+  },
+  mounted() {
+    this.getHomeInfo();
+  },
 };
 </script>
   
 <style >
-  
 </style>
