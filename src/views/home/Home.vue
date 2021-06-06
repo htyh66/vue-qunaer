@@ -1,9 +1,9 @@
 <template>
   <div>
-    <home-header></home-header>
-    <home-swiper></home-swiper>
-    <home-icons></home-icons>
-    <home-tuijian></home-tuijian>
+    <home-header :city="city"></home-header>
+    <home-swiper :swiperList="swiperList"></home-swiper>
+    <home-icons :iconList="iconList"></home-icons>
+    <home-tuijian :tuijianList="tuijianList"></home-tuijian>
   </div>
 </template>
 
@@ -20,13 +20,28 @@ export default {
     HomeIcons,
     HomeTuijian,
   },
+  data(){
+    return {
+      city : '',
+      swiperList: [],
+      iconList: [],
+      tuijianList: []
+    }
+  },
   methods: {
     getHomeInfo() {
-      axios.get("/api/index.json")
-      .then(this.getHomeInfoSucc);
+      axios.get("/api/index.json").then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc(res) {
-      console.log(res);
+      res = res.data
+      if(res.ret && res.data){
+        const data =res.data
+        this.city = data.city 
+        this.swiperList = data.swiperList 
+        this.iconList = data.iconList 
+        this.tuijianList = data.tuijianList 
+
+      }
     },
   },
   mounted() {

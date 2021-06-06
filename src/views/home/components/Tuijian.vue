@@ -6,7 +6,7 @@
         <img :src="item.imgUrl" class="item-img" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
-          <p class="item-content">{{ item.content }}</p>
+          <p class="item-content">{{ item.desc }}</p>
           <span class="item-price">{{ item.price }}</span>
         </div>
       </li>
@@ -18,40 +18,12 @@
 export default {
   data() {
     return {
-      tuijianList: [
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          title: "vue",
-          content: "vuevuevuevuevuevuevuevuevuevuevuevuevuevue",
-          price: 99,
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          title: "vue",
-          content: "vuevuevuevuevuevuevuevuevuevuevuevuevuevue",
-          price: 99,
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          title: "vue",
-          content: "vuevuevuevuevuevuevuevuevuevuevuevuevuevue",
-          price: 99,
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          title: "vue",
-          content: "vuevuevuevuevuevuevuevuevuevuevuevuevuevue",
-          price: 99,
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          title: "vue",
-          content: "vuevuevuevuevuevuevuevuevuevuevuevuevuevue",
-          price: 99,
-        },
-      ],
+      
     };
   },
+  props:{
+    tuijianList : Array
+  }
 };
 </script>
 
@@ -77,7 +49,7 @@ export default {
     position: relative;
     padding: 0.1rem;
     min-width: 0;
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     .item-content {
       overflow: hidden;
       white-space: nowrap;

@@ -6,7 +6,7 @@
           <div class="icon-img">
             <img class="icon-img-content" :src="icon.imgUrl" />
           </div>
-          <div class="icon-name">{{ icon.name }}</div>
+          <div class="icon-name">{{ icon.desc }}</div>
         </div>
       </swiper-slide>
     </swiper>
@@ -17,45 +17,11 @@
 export default {
   data() {
     return {
-      iconList: [
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-        {
-          imgUrl: "https://cn.vuejs.org/images/logo.png",
-          name: "Vue",
-        },
-      ],
+      
     };
+  },
+  props: {
+    iconList : Array
   },
   computed: {
     pages() {

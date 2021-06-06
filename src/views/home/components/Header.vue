@@ -7,13 +7,17 @@
         <span class="iconfont search">&#xe60c;</span>
     </div>
     <div class="header-right">
-        城市
+        {{city}}
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    city: String
+  }
+};
 </script>
 
 <style lang="less" scoped>
