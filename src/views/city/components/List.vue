@@ -1,62 +1,78 @@
 <template>
-  <div class="list">
-    <div class="area">
-      <div class="title border-topbottom">当前城市</div>
-      <div class="btn-list">
-        <div class="btn-wrapper">
-          <div class="btn">北京</div>
+  <div class="list" ref="wrapper">
+    <div >
+      <div class="area">
+        <div class="title border-topbottom">当前城市</div>
+        <div class="btn-list">
+          <div class="btn-wrapper">
+            <div class="btn">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title bordertopbottom">当前城市</div>
-      <div class="btn-list">
-        <div class="btn-wrapper">
-          <div class="btn">北京</div>
+      <div class="area">
+        <div class="title bordertopbottom">热门城市</div>
+        <div class="btn-list">
+          <div class="btn-wrapper">
+            <div class="btn">北京</div>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn">北京</div>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn">北京</div>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+        </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+        </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
-        <div class="item border-bottom">阿拉尔</div>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom">阿拉尔</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import BScroll from "@better-scroll/core";
+export default {
+  mounted() {
+    this.scroll = new BScroll(this.$refs.wrapper);
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -74,12 +90,12 @@ export default {};
   }
 }
 .list {
-    overflow: hidden;
-    position: absolute;
-    top: 1.58rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 1.58rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
   .title {
     line-height: 0.44rem;
     background: #eee;
