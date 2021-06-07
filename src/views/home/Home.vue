@@ -22,7 +22,7 @@ export default {
   },
   data(){
     return {
-      city : '',
+      city : '北京',
       swiperList: [],
       iconList: [],
       tuijianList: []
@@ -30,17 +30,16 @@ export default {
   },
   methods: {
     getHomeInfo() {
-      axios.get("/api/index.json").then(this.getHomeInfoSucc)
+        axios.get("/api/index.json")
+        .then(this.getHomeInfoSucc)
     },
-    getHomeInfoSucc(res) {
-      res = res.data
-      if(res.ret && res.data){
-        const data =res.data
-        this.city = data.city 
+    getHomeInfoSucc(indexRes) { 
+      indexRes = indexRes.data
+      if(indexRes.ret && indexRes.data){
+        const data = indexRes.data
         this.swiperList = data.swiperList 
         this.iconList = data.iconList 
-        this.tuijianList = data.tuijianList 
-
+        this.tuijianList = data.tuijianList
       }
     },
   },

@@ -1,22 +1,24 @@
 <template>
   <div class="header">
     <div class="header-left">
-        <span class="iconfont back">&#xe601;</span>
+      <span class="iconfont back">&#xe601;</span>
     </div>
     <div class="header-input">
-        <span class="iconfont search">&#xe60c;</span>
+      <span class="iconfont search">&#xe60c;</span>
     </div>
-    <div class="header-right">
-        {{city}}
-    </div>
+    <router-link to="/city">
+      <div class="header-right" >
+        {{ this.city }}
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    city: String
-  }
+    city: String,
+  },
 };
 </script>
 
@@ -30,8 +32,8 @@ export default {
     width: 1rem;
     float: left;
     text-align: center;
-    .back{
-        font-size: .6rem; 
+    .back {
+      font-size: 0.6rem;
     }
   }
   .header-input {
@@ -41,17 +43,18 @@ export default {
     background: #fff;
     border-radius: 0.2rem;
     color: #ccc;
-    margin-top: .13rem;
-    .search{
-        font-size: .4rem;
-        margin-left: .1rem;
+    margin-top: 0.13rem;
+    .search {
+      font-size: 0.4rem;
+      margin-left: 0.1rem;
     }
   }
   .header-right {
     width: 1.5rem;
     float: right;
     text-align: center;
-    font-size: .5rem;
+    font-size: 0.5rem;
+    color: #fff;
   }
 }
 </style>
