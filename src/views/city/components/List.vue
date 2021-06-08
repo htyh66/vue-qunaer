@@ -1,6 +1,6 @@
 <template>
   <div class="list" ref="wrapper">
-    <div class="content">
+    <div>
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="btn-list">
@@ -12,18 +12,21 @@
       <div class="area">
         <div class="title bordertopbottom">热门城市</div>
         <div class="btn-list">
-          <div class="btn-wrapper" v-for="(item,index) in hotCities" :key="index">
-            <div class="btn">{{item.name}}</div>
+          <div
+            class="btn-wrapper"
+            v-for="(item, index) in hotCities"
+            :key="index"
+          >
+            <div class="btn">{{ item.name }}</div>
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key) in cities" :key="key">
-        <div class="title border-topbottom">{{key}}</div>
+      <div class="area" v-for="(item, key) in cities" :key="key" :ref="key">
+        <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list" v-for="innerItem in item" :key="innerItem.id">
-          <div class="item border-bottom">{{innerItem.name}}</div>
+          <div class="item border-bottom">{{ innerItem.name }}</div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,19 +34,36 @@
 <script>
 import BScroll from "@better-scroll/core";
 export default {
-  // data(){
-  //   return {
-
-  //   }
-  // },
-  props:{
+  props: {
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String,
   },
-    
+  methods: {
+    bt() {
+      this.$nextTick(() => {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.wrapper);
+        } else {
+          this.scroll.refresh();
+        }
+      });
+    },
+  },
   mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper) 
     
+  },
+  updated() {
+    this.bt()
+  },
+  watch: {
+    letter() {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0];
+       
+        this.scroll.scrollToElement(element);
+      }
+    },
   },
 };
 </script>
