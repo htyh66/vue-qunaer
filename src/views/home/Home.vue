@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header>
+    <home-header ></home-header>
     <home-swiper :swiperList="swiperList"></home-swiper>
     <home-icons :iconList="iconList"></home-icons>
     <home-tuijian :tuijianList="tuijianList"></home-tuijian>
@@ -22,7 +22,6 @@ export default {
   },
   data(){
     return {
-      city : '北京',
       swiperList: [],
       iconList: [],
       tuijianList: []

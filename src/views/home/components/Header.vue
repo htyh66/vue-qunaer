@@ -15,10 +15,11 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-  props: {
-    city: String,
-  },
+  computed: {
+    ...mapState(['city'])
+  }
 };
 </script>
 
@@ -50,7 +51,7 @@ export default {
     }
   }
   .header-right {
-    width: 1.5rem;
+    min-width: 1.5rem;
     float: right;
     text-align: center;
     font-size: 0.5rem;

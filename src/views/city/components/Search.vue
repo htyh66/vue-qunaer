@@ -14,12 +14,11 @@
           class="search-item border-bottom"
           v-for="(item, index) in list"
           :key="index"
+          @click="cityClick(item.name)"
         >
           {{ item.name }}
         </li>
-        <li v-show="hasNoData">
-            无
-        </li>
+        <li v-show="hasNoData">无</li>
       </ul>
     </div>
   </div>
@@ -27,6 +26,7 @@
 
 <script>
 import BScroll from "@better-scroll/core";
+import { mapState,mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -38,14 +38,21 @@ export default {
   props: {
     cities: Object,
   },
+  methods: {
+    ...mapMutations(['changeCity']),
+    cityClick(city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+  },
   computed: {
-    hasNoData(){
-        return !this.list.length
-    }  
+    hasNoData() {
+      return !this.list.length;
+    },
   },
   watch: {
     keyword() {
-        // 清除之前的有延时器
+      // 清除之前的有延时器
       if (this.timer) {
         clearTimeout(this.timer);
       }
