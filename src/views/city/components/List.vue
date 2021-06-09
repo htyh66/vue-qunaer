@@ -4,7 +4,7 @@
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="btn-list">
-          <div class="btn-wrapper" @click="cityClick(this.currentCity)">
+          <div class="btn-wrapper" @click="cityClick(currentCity)">
             <div class="btn">{{ this.currentCity }}</div>
           </div>
         </div>
@@ -39,12 +39,17 @@
 
 <script>
 import BScroll from "@better-scroll/core";
-import { mapState,mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   props: {
     cities: Object,
     hotCities: Array,
     letter: String,
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    }),
   },
   methods: {
     bt() {
@@ -56,17 +61,13 @@ export default {
         }
       });
     },
-    ...mapMutations(['changeCity']),
+    ...mapMutations(["changeCity"]),
     cityClick(city) {
-      this.changeCity(city)
-      this.$router.push('/')
+      this.changeCity(city);
+      this.$router.push("/");
     },
   },
-  computed:{
-    ...mapState({
-      currentCity: 'city'
-    })
-  },
+
   watch: {
     letter() {
       if (this.letter) {
