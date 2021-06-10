@@ -40,5 +40,6 @@ export default {
   .swiper-img{
     
   }
+  
 }
 </style>

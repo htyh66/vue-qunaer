@@ -2,14 +2,20 @@
   <div>
     <div class="title">热门推荐</div>
     <ul>
-      <li class="item" v-for="(item, index) in tuijianList" :key="index">
+      <router-link
+        tag="li"
+        class="item"
+        v-for="(item, index) in tuijianList"
+        :key="index"
+        :to="'/detail/'+ item.id"
+      >
         <img :src="item.imgUrl" class="item-img" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
           <p class="item-content">{{ item.desc }}</p>
           <span class="item-price">{{ item.price }}</span>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -17,13 +23,11 @@
 <script>
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
-  props:{
-    tuijianList : Array
-  }
+  props: {
+    tuijianList: Array,
+  },
 };
 </script>
 
