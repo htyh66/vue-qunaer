@@ -2,17 +2,17 @@
   <div class="banner">
     <img
       class="banner-img"
-      src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"
+      :src="this.bannerImg"
       @click="clickGallary"
     />
     <div class="banner-info">
-      <div class="banner-title">1111111111111111111</div>
+      <div class="banner-title">{{this.sightName}}</div>
       <div class="banner-number">
         <span class="iconfont banner-icon">&#xe60c;</span>
-        99
+        {{gallaryImgs.length}}
       </div>
     </div>
-    <Gallary :imgs="imgs" v-show="showGallary" @close="closeGallary"></Gallary>
+    <Gallary :imgs="gallaryImgs" v-show="showGallary" @close="closeGallary"></Gallary>
   </div>
 </template>
 
@@ -21,12 +21,13 @@ import Gallary from "@/components/gallary/Gallary.vue";
 export default {
   data() {
     return {
-      imgs: [
-        "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg",
-        "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg",
-      ],
       showGallary: false,
     };
+  },
+  props: {
+    sightName:String,
+    bannerImg:String,
+    gallaryImgs:Array,
   },
   components: {
     Gallary,
