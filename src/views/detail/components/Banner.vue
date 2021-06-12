@@ -1,23 +1,26 @@
 <template>
   <div class="banner">
-    <img
-      class="banner-img"
-      :src="this.bannerImg"
-      @click="clickGallary"
-    />
+    <img class="banner-img" :src="this.bannerImg" @click="clickGallary" />
     <div class="banner-info">
-      <div class="banner-title">{{this.sightName}}</div>
+      <div class="banner-title">{{ this.sightName }}</div>
       <div class="banner-number">
         <span class="iconfont banner-icon">&#xe60c;</span>
-        {{gallaryImgs.length}}
+        {{ gallaryImgs.length }}
       </div>
     </div>
-    <Gallary :imgs="gallaryImgs" v-show="showGallary" @close="closeGallary"></Gallary>
+    <FadeAnimation>
+      <Gallary
+        :imgs="gallaryImgs"
+        v-show="showGallary"
+        @close="closeGallary"
+      ></Gallary>
+    </FadeAnimation>
   </div>
 </template>
 
 <script>
 import Gallary from "@/components/gallary/Gallary.vue";
+import FadeAnimation from "@/components/FadeAnimation.vue";
 export default {
   data() {
     return {
@@ -25,12 +28,13 @@ export default {
     };
   },
   props: {
-    sightName:String,
-    bannerImg:String,
-    gallaryImgs:Array,
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array,
   },
   components: {
     Gallary,
+    FadeAnimation,
   },
   methods: {
     clickGallary() {
